@@ -41,7 +41,26 @@ def linear_search(sequential_data, req_number):
     result = {"positions": positions, "count": count}
     return result
 
+def binary_search(sequential_data, req_number):
 
+    left = 0
+    right = len(sequential_data) - 1
+
+    while left <= right:
+
+        middle = (left + right) // 2
+
+        if sequential_data[middle] == req_number:
+            return middle
+
+        elif sequential_data[middle] < req_number:
+
+            left = middle + 1
+
+        else:
+            right = middle - 1
+
+    return None
 
 
 
@@ -51,16 +70,12 @@ def main():
     field = "unordered_numbers"
 
 
-
     sequential_data = read_data(file_name, field)
     print(sequential_data)
 
     req_number = 21
 
     print(linear_search(sequential_data, req_number))
-
-
-    # pass
 
 
 if __name__ == "__main__":
