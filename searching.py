@@ -22,6 +22,13 @@ def read_data(file_name, field):
     
     file_path = cwd_path / file_name
 
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+        return data[field]
+
+
+
 
 def main():
     pass
