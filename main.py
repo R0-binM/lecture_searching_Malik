@@ -1,11 +1,7 @@
-from searching import read_data
+from searching import read_data, linear_search
 
 
 def main():
-
-    sequential_data = read_data("sequential.json", "unordered_numbers")
-    print (sequential_data)
-
 
 
 if __name__ == "__main__":

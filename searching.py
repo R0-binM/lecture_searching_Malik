@@ -1,4 +1,4 @@
-from pathlib import Path
+# from pathlib import Path
 import json
 
 
@@ -17,21 +17,50 @@ def read_data(file_name, field):
             - str: If field is 'dna_sequence'.
             - None: If the field is not supported.
     """
-    # get current working directory path
-    cwd_path = Path.cwd()
-    
-    file_path = cwd_path / file_name
+    # # get current working directory path
+    # cwd_path = Path.cwd()
+    #
+    # file_path = cwd_path / file_name
 
-    with open(file_path, "r") as file:
+    with open(file_name, "r") as file:
         data = json.load(file)
 
         return data[field]
+
+def linear_search(sequential_data, req_number):
+
+    positions = []
+    count = 0
+    result = {}
+
+    for i in range(len(sequential_data)):
+        if sequential_data[i] == req_number:
+            count += 1
+            positions.append(i)
+
+    result = {"positions": positions, "count": count}
+    return result
+
 
 
 
 
 def main():
-    pass
+
+    file_name = "sequential.json"
+    field = "unordered_numbers"
+
+
+
+    sequential_data = read_data(file_name, field)
+    print(sequential_data)
+
+    req_number = 21
+
+    print(linear_search(sequential_data, req_number))
+
+
+    # pass
 
 
 if __name__ == "__main__":
